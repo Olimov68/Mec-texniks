@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MEC TEHNIKS — Landing + Blog (1-kunlik)</title>
+  <meta name="description" content="Oddiy landing va blog posti sayti — 1 kunda ishga tushirish uchun tayyor" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Soft gradient background */
+    .bg-grid {
+      background-image: radial-gradient(rgba(0,0,0,0.06) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+    .prose p { margin: 0.5rem 0; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2 group">
+        <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 shadow-md"></div>
+        <span class="font-bold text-lg tracking-tight group-hover:text-blue-700 transition">MEC TEHNIKS</span>
+      </a>
+      <nav class="hidden sm:flex items-center gap-6 text-sm">
+        <a href="#features" class="hover:text-blue-700">Xususiyatlar</a>
+        <a href="#blog" class="hover:text-blue-700">Blog</a>
+        <a href="#about" class="hover:text-blue-700">Biz haqimizda</a>
+        <a href="#contact" class="hover:text-blue-700">Aloqa</a>
+      </nav>
+      <button id="adminToggle" class="text-xs px-3 py-1 rounded-full border border-slate-300 hover:border-blue-500 hover:text-blue-700 transition">Admin</button>
+    </div>
+  </header>
+
+  <!-- Hero / Landing -->
+  <section id="top" class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-cyan-50"></div>
+    <div class="absolute inset-0 bg-grid opacity-40"></div>
+    <div class="relative max-w-6xl mx-auto px-4 py-16 sm:py-24 grid sm:grid-cols-2 gap-10">
+      <div class="space-y-6">
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">
+          Tez start: <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Landing + Blog</span>
+        </h1>
+        <p class="text-slate-600 text-lg leading-relaxed">
+          1 kunda ishga tushirish mumkin bo‘lgan, yengil va zamonaviy sayt shabloni. Kontentni o‘zingiz
+          boshqarishingiz, blog postlar qo‘shishingiz va dizayn ranglarini tez o‘zgartirishingiz mumkin.
+        </p>
+        <div class="flex gap-3">
+          <a href="#blog" class="px-5 py-3 rounded-2xl bg-blue-600 text-white font-medium shadow hover:shadow-md hover:bg-blue-700 transition">Blogni ko‘rish</a>
+          <a href="#features" class="px-5 py-3 rounded-2xl bg-white border border-slate-300 font-medium hover:border-blue-600 hover:text-blue-700 transition">Xususiyatlar</a>
+        </div>
+        <div class="flex items-center gap-6 pt-2 text-sm text-slate-500">
+          <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span> Static, tez yuklanish</div>
+          <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span> CDN (Tailwind)</div>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="absolute -inset-4 bg-gradient-to-tr from-blue-200/50 to-cyan-200/40 blur-2xl rounded-3xl"></div>
+        <div class="relative bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <div class="font-semibold">So‘nggi postlar</div>
+            <button id="newPostHero" class="text-xs px-3 py-1 rounded-full border border-slate-300 hover:border-blue-500 hover:text-blue-700 transition">Yangi post</button>
+          </div>
+          <ul id="latestPosts" class="space-y-3">
+            <!-- JS bilan to‘ldiriladi -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="max-w-6xl mx-auto px-4 py-14">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-8">Nega shu shablon?</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+        <div class="text-sm font-semibold text-blue-700">0 build, 0 backend</div>
+        <p class="mt-2 text-slate-600">Bitta <strong>HTML</strong> fayl — darhol ishga tushadi. Postlar <em>LocalStorage</em> da saqlanadi.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+        <div class="text-sm font-semibold text-blue-700">Tez tahrirlash</div>
+        <p class="mt-2 text-slate-600">Sarlavha, matn, ranglar, bo‘limlarni oson almashtirasiz. 1 kun ichida tayyor.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+        <div class="text-sm font-semibold text-blue-700">Kengaytirish oson</div>
+        <p class="mt-2 text-slate-600">Keyinchalik Next.js, CMS yoki haqiqiy DB qo‘shish mumkin — struktura mos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog" class="max-w-6xl mx-auto px-4 py-14">
+    <div class="flex items-end justify-between gap-4 mb-6">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-bold">Blog postlari</h2>
+        <p class="text-slate-600">So‘nggi yangiliklar va maqolalar.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <input id="search" type="text" placeholder="Qidirish..." class="px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <button id="newPostBtn" class="px-3 py-2 rounded-xl border border-slate-300 hover:border-blue-500 hover:text-blue-700">Yangi post</button>
+      </div>
+    </div>
+
+    <div id="postsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- JS bilan to‘ldiriladi -->
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-6xl mx-auto px-4 py-14">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-bold">Biz haqimizda</h2>
+        <p class="text-slate-600">MEC TEHNIKS — sanoat va IT kesishmasida ishlaydigan jamoa. Ushbu shablon yordamida siz
+        bir kunda landing va blogni ishga tushirishingiz mumkin.</p>
+        <ul class="list-disc list-inside text-slate-600">
+          <li>Oddiy deploy: Netlify/Cloudflare Pages/GitHub Pages</li>
+          <li>Kod bir faylda — oson boshqaruv</li>
+          <li>Keyinchalik haqiqiy backend qo‘shish mumkin</li>
+        </ul>
+      </div>
+      <div class="relative">
+        <div class="absolute -inset-4 bg-gradient-to-tr from-blue-200/50 to-cyan-200/40 blur-2xl rounded-3xl"></div>
+        <div class="relative p-6 rounded-3xl bg-white border border-slate-200 shadow-sm">
+          <div class="grid grid-cols-3 gap-4 text-center">
+            <div class="p-4 rounded-2xl bg-slate-50">
+              <div class="text-2xl font-extrabold" id="statPosts">0</div>
+              <div class="text-xs text-slate-500">Postlar</div>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50">
+              <div class="text-2xl font-extrabold" id="statViews">0</div>
+              <div class="text-xs text-slate-500">Ko‘rishlar</div>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50">
+              <div class="text-2xl font-extrabold" id="statDays">1</div>
+              <div class="text-xs text-slate-500">Kun ichida</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-14">
+    <div class="rounded-3xl bg-white border border-slate-200 shadow-sm p-6 sm:p-8">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4">Aloqa</h2>
+      <p class="text-slate-600 mb-6">Savollar bo‘lsa yozing. Quyidagi forma demo — yuborish backend talab qiladi.</p>
+      <form onsubmit="event.preventDefault(); alert('Demo forma. Backend qo‘shilganda ishlaydi.');" class="grid sm:grid-cols-3 gap-4">
+        <input class="px-3 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ism" />
+        <input class="px-3 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Email" />
+        <button class="px-5 py-3 rounded-2xl bg-blue-600 text-white font-medium shadow hover:shadow-md hover:bg-blue-700 transition">Yuborish</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 py-10 text-sm">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-slate-500">© <span id="year"></span> MEC TEHNIKS. Barcha huquqlar himoyalangan.</div>
+      <div class="flex items-center gap-3 text-slate-500">
+        <a href="#top" class="hover:text-blue-700">Yuqoriga</a>
+        <span>·</span>
+        <a href="#blog" class="hover:text-blue-700">Blog</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- New/Edit Post Modal -->
+  <div id="postModal" class="fixed inset-0 hidden items-center justify-center bg-black/40 p-4">
+    <div class="w-full max-w-2xl rounded-3xl bg-white border border-slate-200 shadow-xl">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-slate-200">
+        <div class="font-semibold" id="modalTitle">Yangi post</div>
+        <button id="closeModal" class="text-slate-500 hover:text-slate-700">✕</button>
+      </div>
+      <div class="p-5 space-y-3">
+        <input id="postTitle" type="text" placeholder="Sarlavha" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input id="postTags" type="text" placeholder="Teglar (vergul bilan)" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <textarea id="postContent" rows="8" placeholder="Maqola matni..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        <div class="flex items-center justify-between">
+          <div class="text-xs text-slate-500">Matn markdown emas, oddiy formatda saqlanadi.</div>
+          <div class="flex items-center gap-2">
+            <button id="deletePostBtn" class="hidden px-4 py-2 rounded-xl border border-red-300 text-red-600 hover:bg-red-50">O‘chirish</button>
+            <button id="savePostBtn" class="px-4 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700">Saqlash</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- Utilities ---
+    const $ = (s, r=document) => r.querySelector(s);
+    const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+    const uid = () => Math.random().toString(36).slice(2) + Date.now().toString(36);
+
+    const store = {
+      get() {
+        try { return JSON.parse(localStorage.getItem('posts')||'[]'); } catch { return []; }
+      },
+      set(posts) {
+        localStorage.setItem('posts', JSON.stringify(posts));
+      },
+      views() {
+        return Number(localStorage.getItem('views')||'0');
+      },
+      addView() {
+        const v = this.views()+1; localStorage.setItem('views', v); return v;
+      }
+    };
+
+    // Demo seed data on first load
+    function seedIfEmpty() {
+      const posts = store.get();
+      if (posts.length === 0) {
+        const demo = [
+          { id: uid(), title: 'Xush kelibsiz!', tags: ['yangilik','start'], content: 'Bu demo post. Yangi post qo\'shish uchun \"Yangi post\" tugmasini bosing.', createdAt: Date.now() },
+          { id: uid(), title: '1 kunda sayt', tags: ['landing','blog'], content: 'Ushbu shablon bilan landing + blogni 1 kunda ishga tushirish mumkin.', createdAt: Date.now()-86400000 }
+        ];
+        store.set(demo);
+      }
+    }
+
+    // State
+    let ADMIN = false;
+    let EDITING_ID = null;
+
+    // Render helpers
+    function renderStats() {
+      $('#statPosts').textContent = store.get().length;
+      $('#statViews').textContent = store.addView();
+      $('#year').textContent = new Date().getFullYear();
+    }
+
+    function postCard(p) {
+      const date = new Date(p.createdAt).toLocaleDateString();
+      const tags = (p.tags||[]).map(t=>`<span class=\"px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs\">#${t}</span>`).join(' ');
+      const adminBtns = ADMIN ? `
+        <div class=\"mt-3 flex gap-2\">
+          <button data-id=\"${p.id}\" class=\"editBtn px-3 py-1 rounded-xl border border-slate-300 hover:border-blue-500 text-xs\">Tahrirlash</button>
+        </div>` : '';
+      return `
+        <article class=\"p-5 rounded-2xl bg-white border border-slate-200 shadow-sm\">
+          <h3 class=\"font-semibold text-lg\">${p.title}</h3>
+          <div class=\"text-xs text-slate-500 mt-1\">${date}</div>
+          <p class=\"text-slate-600 mt-3 line-clamp-3\">${p.content}</p>
+          <div class=\"mt-3 flex flex-wrap gap-2\">${tags}</div>
+          ${adminBtns}
+        </article>`;
+    }
+
+    function renderPosts(filter='') {
+      const posts = store.get()
+        .sort((a,b)=>b.createdAt-a.createdAt)
+        .filter(p => p.title.toLowerCase().includes(filter) || (p.content||'').toLowerCase().includes(filter));
+      $('#postsGrid').innerHTML = posts.map(postCard).join('');
+      // Latest posts list in hero
+      $('#latestPosts').innerHTML = posts.slice(0,4).map(p => {
+        const date = new Date(p.createdAt).toLocaleDateString();
+        return `<li class=\"flex items-start gap-3\"><div class=\"mt-1 w-2 h-2 rounded-full bg-blue-600\"></div><div><div class=\"font-medium\">${p.title}</div><div class=\"text-xs text-slate-500\">${date}</div></div></li>`;
+      }).join('');
+      // Bind edit buttons
+      $$('.editBtn').forEach(btn => btn.addEventListener('click', () => openModal(btn.dataset.id)));
+      $('#statPosts').textContent = posts.length;
+    }
+
+    // Modal logic
+    function openModal(id=null) {
+      EDITING_ID = id;
+      $('#postModal').classList.remove('hidden');
+      $('#deletePostBtn').classList.toggle('hidden', !id);
+      if (id) {
+        const p = store.get().find(x=>x.id===id);
+        $('#modalTitle').textContent = 'Postni tahrirlash';
+        $('#postTitle').value = p.title || '';
+        $('#postTags').value = (p.tags||[]).join(', ');
+        $('#postContent').value = p.content || '';
+      } else {
+        $('#modalTitle').textContent = 'Yangi post';
+        $('#postTitle').value = '';
+        $('#postTags').value = '';
+        $('#postContent').value = '';
+      }
+    }
+    function closeModal() { $('#postModal').classList.add('hidden'); }
+
+    // Admin toggle (oddiy himoya: 4 xonali PIN)
+    function toggleAdmin() {
+      if (!ADMIN) {
+        const pin = prompt('Admin PIN kiriting (default: 1234)');
+        if (pin === '1234') { ADMIN = true; alert('Admin rejim: ON'); }
+      } else {
+        ADMIN = false; alert('Admin rejim: OFF');
+      }
+      // Ko‘rsatish uchun tugmalarni yangilaymiz
+      $('#newPostBtn').classList.toggle('hidden', !ADMIN);
+      $('#newPostHero').classList.toggle('hidden', !ADMIN);
+      renderPosts($('#search').value.trim().toLowerCase());
+    }
+
+    // Save/Delete post
+    function savePost() {
+      const title = $('#postTitle').value.trim();
+      const tags = $('#postTags').value.split(',').map(t=>t.trim()).filter(Boolean);
+      const content = $('#postContent').value.trim();
+      if (!title || !content) { alert('Sarlavha va matn to‘ldirilishi kerak.'); return; }
+      const posts = store.get();
+      if (EDITING_ID) {
+        const i = posts.findIndex(p=>p.id===EDITING_ID);
+        posts[i] = { ...posts[i], title, tags, content };
+      } else {
+        posts.unshift({ id: uid(), title, tags, content, createdAt: Date.now() });
+      }
+      store.set(posts);
+      closeModal();
+      renderPosts($('#search').value.trim().toLowerCase());
+    }
+
+    function deletePost() {
+      if (!EDITING_ID) return;
+      if (!confirm('Haqiqatan ham o‘chirasizmi?')) return;
+      const posts = store.get().filter(p=>p.id!==EDITING_ID);
+      store.set(posts);
+      closeModal();
+      renderPosts($('#search').value.trim().toLowerCase());
+    }
+
+    // Events
+    window.addEventListener('DOMContentLoaded', () => {
+      seedIfEmpty();
+      renderStats();
+      renderPosts();
+
+      $('#search').addEventListener('input', e => {
+        renderPosts(e.target.value.trim().toLowerCase());
+      });
+      $('#newPostBtn').addEventListener('click', () => openModal());
+      $('#newPostHero').addEventListener('click', () => openModal());
+      $('#adminToggle').addEventListener('click', toggleAdmin);
+      $('#closeModal').addEventListener('click', closeModal);
+      $('#savePostBtn').addEventListener('click', savePost);
+      $('#deletePostBtn').addEventListener('click', deletePost);
+
+      // Admin tugmalarini defaultda yashirish
+      $('#newPostBtn').classList.add('hidden');
+      $('#newPostHero').classList.add('hidden');
+    });
+  </script>
+</body>
+</html>
